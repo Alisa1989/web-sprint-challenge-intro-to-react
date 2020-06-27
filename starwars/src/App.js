@@ -4,9 +4,32 @@ import axios from "axios";
 import './App.css';
 import Character from "./components/Character"
 
+import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import styled, { css } from "styled-components";
+
+//CODE
+//styled-components
+export const characterContainer = styled.div`
+  background: gray;
+  `;
+
+// export const P = styled.p`
+//   display: flex;
+//   justify-content: space-between;
+// `;
+
+export const attributesSpan = styled.span`
+  margin: 2em;
+  font-weight: bold;
+`;
+
+//App function
 const App = () => {
   const [characters, setCharacters] = useState([]);
   
+  //fetch data from API
   useEffect(() => {
     axios
       .get(`https://rickandmortyapi.com/api/character`)
@@ -19,12 +42,10 @@ const App = () => {
       });
   }, []);
   
-  //console.log(characters.results)
-
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <div className="characters">
+      <characterContainer>
         {characters.map(char => {
           return (
             <Character 
@@ -38,7 +59,7 @@ const App = () => {
             />
           );
         })}
-      </div>
+      </characterContainer>
     </div>
   );
 }

@@ -1,6 +1,9 @@
 // Write your Character component here
-
 import React from "react";
+
+import { Button } from "reactstrap";
+import {attributesSpan} from "../App"
+//import {P} from "../App"
 
 const Character = (props) => {
     return(
@@ -8,14 +11,14 @@ const Character = (props) => {
             <img src= {props.image}/>
             <h1>Name: {props.name} </h1>
             <p>
-                <span>Status: {props.status}</span>
-                <span>Planet of Origin: {props.origin}</span>
+                <attributesSpan>Status: {props.status}</attributesSpan>
+                <attributesSpan>Planet of Origin: {props.origin}</attributesSpan>
             </p>
             <p>
-                <span>Species: {props.species}</span>
-                <span>Gender: {props.gender}</span>
+                <attributesSpan>Species: {props.species}</attributesSpan>
+                <attributesSpan>Gender: {props.gender}</attributesSpan>
             </p>
-            <p>Website Page: {props.url}</p>            
+            <Button color="primary" href={props.url}> Webpage </Button>            
 
         </div>
     );
